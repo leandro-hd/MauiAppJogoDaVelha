@@ -5,8 +5,8 @@
 
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-            <GradientStop Color="Purple" Offset="0.3" />
-            <GradientStop Color="Red" Offset="1.1" />
+            <GradientStop Color="LightGray" Offset="0.3" />
+            <GradientStop Color="SteelBlue" Offset="1.1" />
         </LinearGradientBrush>
     </ContentPage.Background>
 
@@ -18,6 +18,15 @@
             <Setter Property="FontSize" Value="80" />
             <Setter Property="BorderWidth" Value="1" />
             <Setter Property="BorderColor" Value="White" />
+
+            <Style.Triggers>
+                <DataTrigger TargetType="Button" Binding="{Binding Text, Source={RelativeSource Self}}" Value="X">
+                    <Setter Property="TextColor" Value="Crimson" />
+                </DataTrigger>
+                <DataTrigger TargetType="Button" Binding="{Binding Text, Source={RelativeSource Self}}" Value="O">
+                    <Setter Property="TextColor" Value="DarkBlue" />
+                </DataTrigger>
+            </Style.Triggers>
         </Style>
     </ContentPage.Resources>
 
@@ -26,7 +35,9 @@
           ColumnSpacing="10" RowSpacing="10" Margin="10">
         
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" 
-               Text="Jogo da Velha" />
+               Text="Jogo da Velha"
+               FontSize="24" 
+                HorizontalOptions="Center"  />
 
         <Button x:Name="btn10" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked" />
         <Button x:Name="btn11" Grid.Row="1" Grid.Column="1" Clicked="Button_Clicked" />
